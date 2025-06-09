@@ -42,6 +42,7 @@ vscode.mac.command
 
 .appveyor.yml
 .travis.yml
+.github
 
 examples/
 test/
