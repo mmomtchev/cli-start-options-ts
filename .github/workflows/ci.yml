@@ -5,7 +5,10 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [ ubuntu-latest, windows-latest, macos-latest ]
+    runs-on: ${{ matrix.platform }}
 
     steps:
       - uses: actions/checkout@v4
@@ -14,4 +17,5 @@ jobs:
           node-version: 22
 
       - run: npm install
+      - run: npx browserslist@latest --update-db
       - run: npm test
